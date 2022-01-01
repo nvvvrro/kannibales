@@ -1,5 +1,5 @@
 {
-  "extends": ["next", "prettier"],
+  "extends": ["next", "prettier", "next/babel"],
   "parserOptions": {
     "ecmaVersion": 2017
   },

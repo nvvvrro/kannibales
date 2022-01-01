@@ -1,8 +1,10 @@
+import Image from "next/image";
 import React from "react";
-
+import { ButtonNav } from ".";
+import Kannibales from "../../images/misc/kannibales.svg";
 export const Header = () => {
   return (
-    <nav className="bg-gray-800">
+    <nav className="bg-primary-main">
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
         <div className="relative flex items-center justify-between h-16">
           <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -25,7 +27,7 @@ export const Header = () => {
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  strokeWidths={2}
+                  strokeWidth={2}
                   d="M4 6h16M4 12h16M4 18h16"
                 />
               </svg>
@@ -41,7 +43,7 @@ export const Header = () => {
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  strokeWidths={2}
+                  strokeWidth={2}
                   d="M6 18L18 6M6 6l12 12"
                 />
               </svg>
@@ -54,42 +56,21 @@ export const Header = () => {
                 src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
                 alt="Workflow"
               />
-              <img
+
+              <Image
                 className="hidden lg:block h-8 w-auto"
-                src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg"
-                alt="Workflow"
-              />
+                src={Kannibales}
+                width={43}
+                height={43}
+                alt="Kannibales"
+              ></Image>
             </div>
             <div className="hidden sm:block sm:ml-6">
               <div className="flex space-x-4">
-                <a
-                  href="#"
-                  className="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
-                  aria-current="page"
-                >
-                  Dashboard
-                </a>
-
-                <a
-                  href="#"
-                  className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  Team
-                </a>
-
-                <a
-                  href="#"
-                  className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  Projects
-                </a>
-
-                <a
-                  href="#"
-                  className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  Calendar
-                </a>
+                <ButtonNav text="Tienda" />
+                <ButtonNav text="Blogs" />
+                <ButtonNav text="Contacto" />
+                <ButtonNav text="Nosotros" />
               </div>
             </div>
           </div>
@@ -111,7 +92,7 @@ export const Header = () => {
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  strokeWidths={2}
+                  strokeWidth={2}
                   d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
                 />
               </svg>

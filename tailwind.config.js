@@ -1,13 +1,23 @@
 const colors = require("tailwindcss/colors");
-/* const plugin = require("tailwindcss/plugin"); */
 
 module.exports = {
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
+    "./src/pages/**/*.{js,ts,jsx,tsx}",
+    "./src/components/**/*.{js,ts,jsx,tsx}",
   ],
+  important: true,
+  darkMode: "class",
+  i18n: {
+    locales: ["en-US"],
+    defaultLocale: "en-US",
+  },
+
   theme: {
     extend: {
+      backgroundImage: (theme) => ({
+        check: "url('/icons/check.svg')",
+        landscape: "url('/images/landscape/2.jpg')",
+      }),
       pacing: {
         128: "32rem",
         144: "36rem",
@@ -38,13 +48,20 @@ module.exports = {
         main: colors.indigo[300],
         dark: colors.indigo[900],
         light: colors.indigo[100],
-        contrast: colors.rose[500],
+        contrast: colors.indigo[500],
       },
       secondary: {
         main: colors.indigo[200],
         dark: colors.indigo[800],
         light: colors.indigo[50],
-        contrast: colors.rose[400],
+        contrast: colors.indigo[500],
+      },
+      btn: {
+        main: colors.pink[400],
+        dark: colors.pink[900],
+        light: colors.pink[200],
+        contrast: colors.rose[600],
+        current: colors.pink[500],
       },
       transparent: "transparent",
       current: "currentColor",
@@ -54,7 +71,24 @@ module.exports = {
       emerald: colors.emerald,
       indigo: colors.indigo,
       yellow: colors.yellow,
+      rose: colors.rose,
+      pink: colors.pink,
     },
   },
-  plugins: [],
+  variants: {
+    extend: {
+      backgroundColor: ["checked"],
+      borderColor: ["checked"],
+      inset: ["checked"],
+      zIndex: ["hover", "active"],
+    },
+  },
+  plugins: [
+    require("postcss-import"),
+    require("tailwindcss"),
+    require("autoprefixer"),
+  ],
+  future: {
+    purgeLayersByDefault: true,
+  },
 };
