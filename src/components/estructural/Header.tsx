@@ -56,16 +56,12 @@ export const Header = () => {
                 src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
                 alt="Workflow"
               />
-              <img
-                className="hidden lg:block h-8 w-auto"
-                src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg"
-                alt="Workflow"
-              />
+
               <Image
                 className="hidden lg:block h-8 w-auto"
                 src={Kannibales}
-                width={30}
-                height={30}
+                width={43}
+                height={43}
                 alt="Kannibales"
               ></Image>
             </div>
