@@ -18,3 +18,17 @@ a {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .btn-nav {
+    @apply py-2 px-4 bg-btn-main text-white w-full transition ease-in text-center text-sm font-semibold shadow-md rounded-md;
+  }
+
+  .btn-nav:hover {
+    @apply bg-btn-contrast text-white;
+  }
+
+  .btn-nav:focus {
+    @apply ring-btn-current ring-offset-btn-light outline-none ring-2 ring-offset-2;
+  }
+}
