@@ -31,17 +31,13 @@ module.exports = {
       },
     },
     screens: {
-      "2xl": "1920px",
-      xl: "1440px",
-      lg: "1024px",
-      md: "768px",
-      sm: "640px",
-      xs: "480px",
       "2xs": "360px",
-    },
-    fontFamily: {
-      sans: ["Inter", "sans-serif"],
-      mono: ["Menlo", "monospace"],
+      xs: "480px",
+      sm: "640px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1280px",
+      "2xl": "1536px",
     },
     colors: {
       primary: {
@@ -63,6 +59,18 @@ module.exports = {
         contrast: colors.rose[600],
         current: colors.pink[500],
       },
+      tx: {
+        title: colors.pink[400],
+        subtitle: colors.indigo[600],
+        main: colors.gray[500],
+        dark: colors.gray[900],
+        light: colors.gray[100],
+        current: colors.gray[600],
+
+        warning: colors.orange[500],
+        success: colors.green[500],
+        error: colors.red[500],
+      },
       transparent: "transparent",
       current: "currentColor",
       black: colors.black,
@@ -74,6 +82,10 @@ module.exports = {
       rose: colors.rose,
       pink: colors.pink,
     },
+  },
+  fontFamily: {
+    sans: ["Inter", "sans-serif"],
+    mono: ["Menlo", "monospace"],
   },
   variants: {
     extend: {
