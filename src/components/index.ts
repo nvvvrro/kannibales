@@ -1,1 +1,1 @@
-export * from "./estructural";
+export * from "./structural";
