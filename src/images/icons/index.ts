@@ -1,2 +1,3 @@
-export * from "./Incognito.svg";
-export * from "./IncognitoIcon.svg";
+
+export * from "./ShoppingBagIcon";
+export * from "./IncognitoIcon";

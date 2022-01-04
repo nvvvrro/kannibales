@@ -62,6 +62,7 @@ module.exports = {
       tx: {
         title: colors.pink[400],
         subtitle: colors.indigo[600],
+
         main: colors.gray[500],
         dark: colors.gray[900],
         light: colors.gray[100],
