@@ -3,6 +3,7 @@ import Image from "next/image";
 import { ButtonNav } from ".";
 import { ShoppingBagIcon, IncognitoIcon } from "../../images";
 import Kannibales from "../../images/misc/kannibales.svg";
+import { Searcher } from "../reusable";
 export const Header = () => {
   return (
     <nav className="bg-primary-main">
@@ -74,6 +75,13 @@ export const Header = () => {
                 <ButtonNav text="Nosotros" />
               </div>
             </div>
+            <div className="hidden sm:block sm:ml-6">
+              <Searcher
+                id="searcher-header"
+                name="searcher-header"
+                onChange={() => {}}
+              />
+            </div>
           </div>
           <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
             <button
@@ -83,7 +91,7 @@ export const Header = () => {
               <span className="sr-only">View notifications</span>
 
               <ShoppingBagIcon
-                className="h-6 w-6"
+                className="h-8 w-8"
                 strokeLinejoin="round"
                 strokeLinecap="round"
                 strokeWidth={2}
@@ -101,6 +109,7 @@ export const Header = () => {
                   aria-haspopup="true"
                 >
                   <span className="sr-only">Open user menu</span>
+
                   <img
                     className="h-8 w-8 rounded-full"
                     src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
