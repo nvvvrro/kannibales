@@ -2,10 +2,11 @@ import React from "react";
 import Image from "next/image";
 import Kannibales from "../../images/misc/kannibales.svg";
 import { FooterBottom } from "./FooterBottom";
+
 export const Footer = () => {
   return (
     <footer className="text-tx-main body-font">
-      <div className="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
+      <div className="container px-5 py-16 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
         <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
           <a className="flex title-font font-medium items-center md:justify-start justify-center text-tx-dark">
             <Image
@@ -22,66 +23,74 @@ export const Footer = () => {
           </p>
         </div>
         <div className="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
-          <div className="lg:w-1/3 md:w-1/2 w-full px-4">
+          <div className="lg:w-1/3 md:w-1/3 w-full px-4">
             <h2 className="title-font font-medium text-tx-subtitle tracking-widest text-sm mb-3">
-              CATEGORIES
+              TIENDA
             </h2>
             <nav className="list-none mb-10">
               <li>
-                <a className="text-tx-main hover:text-tx-dark">First Link</a>
+                <a className="text-tx-main hover:text-tx-dark">
+                  Lo mas Vendido
+                </a>
               </li>
               <li>
-                <a className="text-tx-main hover:text-tx-dark">Second Link</a>
+                <a className="text-tx-main hover:text-tx-dark">Top Ofertas</a>
               </li>
               <li>
-                <a className="text-tx-main hover:text-tx-dark">Third Link</a>
+                <a className="text-tx-main hover:text-tx-dark">Lo mas Nuevo</a>
               </li>
               <li>
-                <a className="text-tx-main hover:text-tx-dark">Fourth Link</a>
+                <a className="text-tx-main hover:text-tx-dark">Cosmética 👄</a>
               </li>
             </nav>
           </div>
-          <div className="lg:w-1/3 md:w-1/2 w-full px-4">
+          <div className="lg:w-1/3 md:w-1/3 w-full px-4">
             <h2 className="title-font font-medium text-tx-subtitle tracking-widest text-sm mb-3">
-              CATEGORIES
+              BLOGS
             </h2>
             <nav className="list-none mb-10">
               <li>
-                <a className="text-tx-main hover:text-tx-dark">First Link</a>
+                <a className="text-tx-main hover:text-tx-dark">Tips 📝</a>
               </li>
               <li>
-                <a className="text-tx-main hover:text-tx-dark">Second Link</a>
+                <a className="text-tx-main hover:text-tx-dark">
+                  Información de envío
+                </a>
               </li>
               <li>
-                <a className="text-tx-main hover:text-tx-dark">Third Link</a>
+                <a className="text-tx-main hover:text-tx-dark">Como comprar</a>
               </li>
+
               <li>
-                <a className="text-tx-main hover:text-tx-dark">Fourth Link</a>
+                <a className="text-tx-main hover:text-tx-dark">
+                  Cambio y Devoluciones
+                </a>
               </li>
             </nav>
           </div>
-          <div className="lg:w-1/3 md:w-1/2 w-full px-4">
+          <div className="lg:w-1/3 md:w-1/3 w-full px-4">
             <h2 className="title-font font-medium text-tx-subtitle tracking-widest text-sm mb-3">
-              CATEGORIES
+              NOSOTROS
             </h2>
             <nav className="list-none mb-10">
               <li>
-                <a className="text-tx-main hover:text-tx-dark">First Link</a>
+                <a className="text-tx-main hover:text-tx-dark">Contactanos</a>
               </li>
               <li>
-                <a className="text-tx-main hover:text-tx-dark">Second Link</a>
+                <a className="text-tx-main hover:text-tx-dark">
+                  Preguntas Frecuentes
+                </a>
               </li>
               <li>
-                <a className="text-tx-main hover:text-tx-dark">Third Link</a>
-              </li>
-              <li>
-                <a className="text-tx-main hover:text-tx-dark">Fourth Link</a>
+                <a className="text-tx-main hover:text-tx-dark">
+                  Politicas de privacidad
+                </a>
               </li>
             </nav>
           </div>
         </div>
       </div>
-      <FooterBottom/>
+      <FooterBottom />
     </footer>
   );
 };
