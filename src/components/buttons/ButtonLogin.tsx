@@ -10,7 +10,7 @@ interface Props {
 }
 
 export const ButtonLogin = ({ text, className, onClick, disabled }: Props) => {
-  const handleSession = () => signIn();
+  const handleSession = () => signIn("github");
   return (
     <button
       type="button"
