@@ -1,8 +1,8 @@
 import React from "react";
 import Image from "next/image";
-import { ButtonNav } from ".";
-import { ShoppingBagIcon, IncognitoIcon } from "../../images";
-import Kannibales from "../../images/misc/kannibales.svg";
+import { ButtonNav } from "../buttons/ButtonNav";
+import { ShoppingBagIcon, IncognitoIcon } from "images";
+import Kannibales from "images/misc/kannibales.svg";
 import { Searcher } from "../reusable";
 export const Header = () => {
   return (

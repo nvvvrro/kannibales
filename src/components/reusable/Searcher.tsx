@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { TagIcon, LupaIcon } from "../../images";
+import { TagIcon, LupaIcon } from "images";
 import Image from "next/image";
 
 interface Props {
