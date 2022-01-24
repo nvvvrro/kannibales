@@ -2,7 +2,7 @@ import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import GitHubProvider from "next-auth/providers/github";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
-import { prisma } from "prisma";
+import { prisma } from "prisma/index";
 
 /**
  * @description This is the next-auth configuration for the [...nextAuth] page. It is used to authenticate users with different providers.
