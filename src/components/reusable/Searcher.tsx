@@ -49,7 +49,7 @@ export const Searcher: FC<Props> = ({
         } mb-2`}
       >
         <input
-          className="w-full appearance-none relative block px-4 py-2 border border-tx-main placeholder-tx-ph text-sm leading-tight focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-base sm:leading-4"
+          className="w-full appearance-none relative block px-4 py-2 border border-tx-main placeholder-tx-ph text-sm leading-tight focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 mobile:text-base mobile:leading-4"
           name={name}
           type={"text" || type}
           onChange={onChange}
@@ -66,7 +66,7 @@ export const Searcher: FC<Props> = ({
           }`}
         >
           {buttonText || (
-            <div className="hidden appearance-none sm:block sm:ml-1 mr-1">
+            <div className="hidden appearance-none mobile:block mobile:ml-1 mr-1">
               <LupaIcon width={30} height={30} />
             </div>
           )}
