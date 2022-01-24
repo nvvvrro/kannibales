@@ -3,13 +3,13 @@ import { useSession, signIn, signOut } from "next-auth/react";
 import { GoogleIcon } from "images";
 
 interface Props {
-  text?: string;
+  title?: string;
   className?: string;
   onClick?: () => void;
   disabled?: boolean;
 }
 
-export const ButtonLogin = ({ text, className, onClick, disabled }: Props) => {
+export const ButtonLogin = ({ title, className, onClick, disabled }: Props) => {
   const handleSession = () => signIn("github");
   return (
     <button
@@ -18,7 +18,7 @@ export const ButtonLogin = ({ text, className, onClick, disabled }: Props) => {
       onClick={onClick || handleSession}
       disabled={disabled}
     >
-      <GoogleIcon />
+      <GoogleIcon /> {title}
     </button>
   );
 };
