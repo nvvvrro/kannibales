@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import Kannibales from "../../images/misc/kannibales.svg";
+import Kannibales from "images/misc/kannibales.svg";
 import { FooterBottom } from "./FooterBottom";
 
 export const Footer = () => {
