@@ -1,0 +1,120 @@
+@layer utilities {
+  /* ---------- Common ----------*/
+  .btn {
+    @apply relative py-2.5 px-6 text-white text-sm leading-[1.4] tracking-wider font-semibold w-full;
+
+    &:hover:enabled {
+      @apply outline-none;
+    }
+
+    &:focus-visible {
+      @apply ring-btn-current ring-offset-btn-light outline-none ring-2 ring-offset-2;
+    }
+
+    &:disabled {
+      @apply bg-opacity-70 text-opacity-60 cursor-not-allowed ring-inset disabled:transition-none ring-opacity-60;
+    }
+  }
+
+  .btn-native {
+    @apply py-2 px-4 disabled:cursor-not-allowed text-white bg-tx-dark;
+
+    &:hover {
+      @apply ring-2;
+    }
+  }
+
+  .btn--selected {
+    @apply text-white border-x-4;
+  }
+
+  .btn-effect-top {
+    @apply absolute inset-0 w-full h-full transition duration-300 transform -translate-x-1 -translate-y-1 bg-indigo-700 ease-in-out opacity-80 group-hover:translate-x-0  group-hover:translate-y-0 group-focus:translate-y-0 group-focus:translate-x-0;
+  }
+
+  .btn-effect-bottom {
+    @apply absolute inset-0 w-full transition duration-300 transform translate-x-1 translate-y-1 bg-pink-800 ease-out opacity-90 group-hover:translate-x-0 group-hover:translate-y-0 mix-blend-screen group-focus:translate-y-0 group-focus:translate-x-0 group-focus:bg-primary-dark;
+  }
+
+  /* ---------- Types ----------*/
+
+  /*Primary*/
+  .btn-primary {
+    @apply bg-btn-main text-tx-light transition ease-in text-center;
+
+    &:hover:enabled {
+      @apply bg-btn-contrast text-white;
+    }
+
+    &:active:enabled {
+      @apply bg-btn-current text-rose-200;
+    }
+
+    &:focus:enabled {
+      @apply text-pink-300 outline-none;
+    }
+  }
+
+  /*Secondary*/
+  .btn-secondary {
+    @apply text-tx-light transition text-center;
+
+    &:hover:enabled {
+      @apply text-white;
+    }
+
+    &:active:enabled {
+      @apply bg-primary-contrast text-primary-main;
+    }
+
+    &:focus:enabled {
+      @apply text-indigo-300 outline-none;
+    }
+  }
+
+  /*Outline*/
+  .btn-outline {
+    @apply bg-transparent text-btn-contrast font-bold transition ease-in text-center rounded-md ring-2 ring-btn-current;
+
+    &:hover:enabled {
+      @apply bg-btn-main text-tx-light;
+    }
+
+    &:active:enabled {
+      @apply bg-btn-current text-rose-200;
+    }
+
+    &:focus:enabled {
+      @apply ring-btn-current ring-offset-btn-light outline-none ring-2 ring-offset-2;
+    }
+  }
+
+  /* Item */
+  .btn-item {
+    @apply bg-transparent text-tx-dark rounded-full rounded-bl-xl;
+
+    &:hover:enabled {
+      @apply text-tx-light ring-2;
+    }
+
+    &:active:enabled {
+      @apply text-rose-200;
+    }
+
+    &.btn-selected {
+      @apply btn--selected;
+    }
+  }
+
+  /* ---------- Sizes ----------*/
+
+  /* Small */
+  .btn-small {
+    @apply px-2 py-2;
+  }
+
+  /* Large */
+  .btn-large {
+    @apply px-7 py-3.5;
+  }
+}
