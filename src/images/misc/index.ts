@@ -1,1 +1,1 @@
-export * from "./Kannibales.svg";
+export * from "./kannibales.svg";

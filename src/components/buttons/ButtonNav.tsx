@@ -1,13 +1,13 @@
 import React from "react";
 
 interface Props {
-  text: string;
+  title: string;
   className?: string;
   onClick?: () => void;
   disabled?: boolean;
 }
 
-export const ButtonNav = ({ text, className, onClick, disabled }: Props) => {
+export const ButtonNav = ({ title, className, onClick, disabled }: Props) => {
   return (
     <button
       type="button"
@@ -15,7 +15,7 @@ export const ButtonNav = ({ text, className, onClick, disabled }: Props) => {
       onClick={onClick}
       disabled={disabled}
     >
-      {text}
+      {title}
     </button>
   );
 };

@@ -1,17 +1,17 @@
 const colors = require("tailwindcss/colors");
 
 module.exports = {
+  mode: "jit",
+  darkMode: "class",
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx}",
     "./src/components/**/*.{js,ts,jsx,tsx}",
   ],
   important: true,
-  darkMode: "class",
   i18n: {
     locales: ["en-US"],
     defaultLocale: "en-US",
   },
-
   theme: {
     extend: {
       backgroundImage: (theme) => ({
@@ -33,15 +33,15 @@ module.exports = {
     screens: {
       "2xs": "360px",
       xs: "480px",
-      sm: "640px",
+      mobile: "640px",
       md: "768px",
-      lg: "1024px",
+      desktop: "1024px",
       xl: "1280px",
       "2xl": "1536px",
     },
     colors: {
       primary: {
-        main: colors.indigo[300],
+        main: colors.indigo[200],
         dark: colors.indigo[900],
         light: colors.indigo[100],
         contrast: colors.indigo[500],
@@ -58,10 +58,13 @@ module.exports = {
         light: colors.pink[200],
         contrast: colors.rose[600],
         current: colors.pink[500],
+        secondary: colors.blue[500],
       },
       tx: {
         title: colors.pink[400],
         subtitle: colors.indigo[600],
+        ph: colors.indigo[300],
+
         main: colors.gray[500],
         dark: colors.gray[900],
         light: colors.gray[100],

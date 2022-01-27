@@ -7,8 +7,8 @@ interface Props {
 export const FooterBottom = ({ className }: Props) => {
   return (
     <div className={`bg-primary-light ${className}`}>
-      <div className="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
-        <p className="text-tx-main text-sm text-center sm:text-left">
+      <div className="container mx-auto py-4 px-5 flex flex-wrap flex-col mobile:flex-row">
+        <p className="text-tx-main text-sm text-center mobile:text-left">
           © 2022 Kannibales - All rights reserved. Made with{" "}
           <span className="hover:text-btn-contrast">❤</span> by{" "}
           <a
@@ -20,13 +20,13 @@ export const FooterBottom = ({ className }: Props) => {
             @d_rlyn & @nvvvrro
           </a>
         </p>
-        <span className="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
+        <span className="inline-flex mobile:ml-auto mobile:mt-0 mt-2 justify-center mobile:justify-start">
           <a className="text-tx-main">
             <svg
               fill="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
               className="w-5 h-5"
               viewBox="0 0 24 24"
             >
@@ -36,9 +36,9 @@ export const FooterBottom = ({ className }: Props) => {
           <a className="ml-3 text-tx-main">
             <svg
               fill="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
               className="w-5 h-5"
               viewBox="0 0 24 24"
             >
@@ -49,9 +49,9 @@ export const FooterBottom = ({ className }: Props) => {
             <svg
               fill="none"
               stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
               className="w-5 h-5"
               viewBox="0 0 24 24"
             >
@@ -63,9 +63,9 @@ export const FooterBottom = ({ className }: Props) => {
             <svg
               fill="currentColor"
               stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="0"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="0"
               className="w-5 h-5"
               viewBox="0 0 24 24"
             >
