@@ -91,14 +91,14 @@
 
   /* Item */
   .btn-item {
-    @apply bg-transparent text-tx-dark rounded-full rounded-bl-xl;
+    @apply bg-transparent text-tx-dark rounded-full not-sr-only;
 
     &:hover:enabled {
-      @apply text-tx-light ring-2;
+      @apply text-tx-current;
     }
 
     &:active:enabled {
-      @apply text-rose-200;
+      @apply text-black;
     }
 
     &.btn-selected {
