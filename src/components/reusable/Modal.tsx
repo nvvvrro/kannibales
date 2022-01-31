@@ -11,9 +11,7 @@ export const Modal: FC<Props> = ({ children, className }) => {
   return (
     <div
       id="modal-bg"
-      className={`${
-        className || ""
-      }  h-full w-full py-16 px-4 absolute inset-0 bg-gradient-to-tl from-primary-light to-primary-dark opacity-75 top-0 min-w-0 z-10`}
+      className={`${className || ""} h-full w-full py-16 px-4 ease-in-out absolute inset-0 bg-primary-dark bg-opacity-60 top-0 min-w-0 z-10`}
     >
       <div className="flex flex-col items-center justify-center">
         <div
@@ -28,7 +26,7 @@ export const Modal: FC<Props> = ({ children, className }) => {
                 document.getElementById("modal-bg")?.remove();
               }}
             >
-              <XIcon className="w-8 h-8 " />
+              <XIcon className="w-8 h-8" />
             </Button>
           </div>
 
