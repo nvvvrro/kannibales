@@ -1,16 +1,16 @@
-import type { HTMLProps } from "react";
+import { motion, HTMLMotionProps } from "framer-motion";
 import classNames from "classnames";
 
 type ButtonType = "item" | "primary" | "secondary" | "outline" | "native";
 
 type ButtonSize = "small" | "large";
 
-interface Props extends Omit<HTMLProps<HTMLButtonElement>, "size"> {
+interface Props extends HTMLMotionProps<"button"> {
   children?: React.ReactNode;
   className?: string;
   onCLick?: () => void;
   title?: string;
-  type?: ButtonType;
+  kind?: ButtonType;
   size?: ButtonSize;
   selected?: boolean;
   disabled?: boolean;
@@ -18,44 +18,48 @@ interface Props extends Omit<HTMLProps<HTMLButtonElement>, "size"> {
 }
 export const Button = ({
   children,
-  className,
+  className = "",
   onCLick,
   title,
-  type = "native",
+  kind = "native",
   size,
   selected,
   disabled,
   icon,
+  whileHover,
+  whileTap,
   ...props
 }: Props) => {
   const cn = classNames(className, "btn", {
-    "btn-primary": type === "primary",
-    "btn-secondary": type === "secondary",
-    "btn-outline": type === "outline",
-    "btn-item": type === "item",
+    "btn-primary": kind === "primary",
+    "btn-secondary": kind === "secondary",
+    "btn-outline": kind === "outline",
+    "btn-item": kind === "item",
     "btn-small": size === "small",
     "btn-large": size === "large",
     "btn-selected": selected,
   });
 
-  const hasEfect = type === "primary" || type === "secondary";
+  const hasEfect = kind === "primary" || kind === "secondary";
 
   return (
-    <button
+    <motion.button
       type="button"
       title={title}
       className={`${
-        type === "native" ? classNames("btn-native", className) : cn
+        kind === "native" ? classNames("btn-native", className) : cn
       } group`}
       onClick={onCLick}
       disabled={disabled}
       {...props}
+      whileHover={whileHover || { scale: 1.02 }}
+      whileTap={whileTap || { scale: 0.8 }}
     >
       <span className={hasEfect ? "btn-effect-top" : ""} />
       <span className={hasEfect ? "btn-effect-bottom" : ""} />
       <span className={hasEfect ? "relative" : ""}>{title}</span>
       {icon && <span className="btn-icon">{icon}</span>}
       {children}
-    </button>
+    </motion.button>
   );
 };
