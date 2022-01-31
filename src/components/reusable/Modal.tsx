@@ -20,7 +20,7 @@ export const Modal: FC<Props> = ({ children, className }) => {
         >
           <div className="flex justify-end items-end -mx-6">
             <Button
-              type="item"
+              kind="item"
               className="text-tx-main hover:text-tx-dark active:text-tx-current"
               onClick={() => {
                 document.getElementById("modal-bg")?.remove();

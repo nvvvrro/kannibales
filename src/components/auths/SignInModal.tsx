@@ -66,7 +66,7 @@ export const SignInModal: FC<Props> = ({ title, isOpen = false, onClick }) => {
               className="bg-primary-light border rounded focus:outline-none text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"
             />
             <div className="absolute right-0 mt-2 mr-3 cursor-pointer">
-              <Button type="item" onClick={handleToogleVisblePassword}>
+              <Button kind="item" onClick={handleToogleVisblePassword}>
                 {isPasswordVisible ? (
                   <EyeIcon className="h-6 w-6 text-indigo-700 hover:text-primary-contrast" />
                 ) : (
@@ -89,8 +89,6 @@ export const SignInModal: FC<Props> = ({ title, isOpen = false, onClick }) => {
 
         <div className="flex items-center justify-between mt-2 desktop:mx-24 gap-3">
           <motion.div
-            whileHover={{ scale: 1.2 }}
-            whileTap={{ scale: 0.8 }}
             animate={{
               scale: [1, 1.1, 1],
               rotate: [0, 0, 360],
@@ -98,16 +96,16 @@ export const SignInModal: FC<Props> = ({ title, isOpen = false, onClick }) => {
           >
             <Button
               aria-label="Continue with Facebook"
-              type="item"
-              className="flex-shrink mt-6 hover:opacity-90 "
+              kind="item"
+              className="flex-shrink mt-6 hover:opacity-90"
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.8 }}
             >
               <FacebookIcon width={42} height={42} />
             </Button>
           </motion.div>
 
           <motion.div
-            whileHover={{ scale: 1.2 }}
-            whileTap={{ scale: 0.8 }}
             animate={{
               scale: [1, 1.1, 1],
               rotate: [0, 0, 360],
@@ -115,16 +113,16 @@ export const SignInModal: FC<Props> = ({ title, isOpen = false, onClick }) => {
           >
             <Button
               aria-label="Continue with google"
-              type="item"
+              kind="item"
               className="flex-shrink mt-6 hover:opacity-90"
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.8 }}
             >
               <GoogleIcon width={50} height={50} />
             </Button>
           </motion.div>
 
           <motion.div
-            whileHover={{ scale: 1.2 }}
-            whileTap={{ scale: 0.8 }}
             animate={{
               scale: [1, 1.1, 1],
               rotate: [0, 0, 360],
@@ -132,26 +130,21 @@ export const SignInModal: FC<Props> = ({ title, isOpen = false, onClick }) => {
           >
             <Button
               aria-label="Continue with twitter"
-              type="item"
-              className="flex-shrink mt-6 hover:opacity-90 "
+              kind="item"
+              className="flex-shrink mt-6 hover:opacity-90"
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.8 }}
             >
-              <TwitterIcon width={42} height={42} className="" />
+              <TwitterIcon width={42} height={42} />
             </Button>
           </motion.div>
         </div>
-
-        <motion.div
-          className="mt-8"
-          whileHover={{ scale: 1 }}
-          whileTap={{ scale: 0.8 }}
-        >
-          <Button
-            type="outline"
-            role="button"
-            aria-label="create my account"
-            title="Iniciar sesión"
-          ></Button>
-        </motion.div>
+        <Button
+          className="mt-6"
+          kind="outline"
+          aria-label="create my account"
+          title="Iniciar sesión"
+        ></Button>
       </Modal>
     )
   );
