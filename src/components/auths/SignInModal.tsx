@@ -1,10 +1,10 @@
 import { FC, useCallback, useEffect, useState } from "react";
 import { Button } from "components";
-import Image from "next/image";
 import { EyeIcon, EyeOffIcon } from "@heroicons/react/outline";
 import { FacebookIcon, GoogleIcon, TwitterIcon } from "images";
 import { motion } from "framer-motion";
 import { Modal } from "components/reusable";
+import { SocialNetworkButtons } from "./SocialNetworkButtons";
 
 interface Props {
   title?: string;
@@ -24,7 +24,7 @@ export const SignInModal: FC<Props> = ({ title, isOpen = false, onClick }) => {
     { isOpen } && (
       <Modal>
         <p
-          tabIndex={0}
+          tabIndex={-1}
           role="heading"
           aria-label="Login to your account"
           className="text-2xl font-extrabold leading-6 text-gray-800"
@@ -87,60 +87,10 @@ export const SignInModal: FC<Props> = ({ title, isOpen = false, onClick }) => {
           Inciar sesión con
         </p>
 
-        <div className="flex items-center justify-between mt-2 desktop:mx-24 gap-3">
-          <motion.div
-            animate={{
-              scale: [1, 1.1, 1],
-              rotate: [0, 0, 360],
-            }}
-          >
-            <Button
-              aria-label="Continue with Facebook"
-              kind="item"
-              className="flex-shrink mt-6 hover:opacity-90"
-              whileHover={{ scale: 1.2 }}
-              whileTap={{ scale: 0.8 }}
-            >
-              <FacebookIcon width={42} height={42} />
-            </Button>
-          </motion.div>
+        <SocialNetworkButtons />
 
-          <motion.div
-            animate={{
-              scale: [1, 1.1, 1],
-              rotate: [0, 0, 360],
-            }}
-          >
-            <Button
-              aria-label="Continue with google"
-              kind="item"
-              className="flex-shrink mt-6 hover:opacity-90"
-              whileHover={{ scale: 1.2 }}
-              whileTap={{ scale: 0.8 }}
-            >
-              <GoogleIcon width={50} height={50} />
-            </Button>
-          </motion.div>
-
-          <motion.div
-            animate={{
-              scale: [1, 1.1, 1],
-              rotate: [0, 0, 360],
-            }}
-          >
-            <Button
-              aria-label="Continue with twitter"
-              kind="item"
-              className="flex-shrink mt-6 hover:opacity-90"
-              whileHover={{ scale: 1.2 }}
-              whileTap={{ scale: 0.8 }}
-            >
-              <TwitterIcon width={42} height={42} />
-            </Button>
-          </motion.div>
-        </div>
         <Button
-          className="mt-6"
+          className="mt-8"
           kind="outline"
           aria-label="create my account"
           title="Iniciar sesión"
