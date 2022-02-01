@@ -5,8 +5,9 @@ import { ShoppingBagIcon, IncognitoIcon } from "images";
 import Kannibales from "images/misc/kannibales.svg";
 import { Searcher } from "../reusable";
 import { UserNav } from "components/auths/UserNav";
-import { MenuProfile } from ".";
+import { MenuProfile, SideBar } from ".";
 import { IconLabel } from "components/reusable/IconLabel";
+import { Button } from "components";
 export const Header = () => {
   return (
     <nav className="bg-primary-main">
@@ -56,26 +57,20 @@ export const Header = () => {
           </div>
           <div className="flex-1 flex items-center justify-center mobile:items-stretch mobile:justify-start">
             <div className="flex-shrink-0 flex items-center">
-              <img
-                className="block desktop:hidden h-8 w-auto"
-                src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
-                alt="Workflow"
-              />
-
               <Image
-                className="hidden desktop:block h-8 w-auto cursor-pointer hover:opacity-75"
+                className="desktop:block h-8 w-auto cursor-pointer hover:opacity-75"
                 src={Kannibales}
                 width={43}
                 height={43}
                 alt="Kannibales"
               />
             </div>
-            <div className="hidden mobile:block mobile:ml-6">
+            <div className="hidden mobile:block mobile:ml-6 gap-4">
               <div className="flex space-x-4">
-                <ButtonNav title="Tienda" />
-                <ButtonNav title="Blogs" />
-                <ButtonNav title="Contacto" />
-                <ButtonNav title="Nosotros" />
+                <Button title="Tienda" kind="outline" />
+                <Button title="Blogs" kind="secondary" />
+                <Button title="Contacto" kind="primary" />
+                <Button title="Nosotros" kind="item" />
               </div>
             </div>
             <div className="hidden mobile:block mobile:ml-6">
@@ -108,38 +103,7 @@ export const Header = () => {
         </div>
       </div>
 
-      <div className="mobile:hidden" id="mobile-menu">
-        <div className="px-2 pt-2 pb-3 space-y-1">
-          <a
-            href="#"
-            className="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium"
-            aria-current="page"
-          >
-            Dashboard
-          </a>
-
-          <a
-            href="#"
-            className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-          >
-            Team
-          </a>
-
-          <a
-            href="#"
-            className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-          >
-            Projects
-          </a>
-
-          <a
-            href="#"
-            className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-          >
-            Calendar
-          </a>
-        </div>
-      </div>
+      <SideBar />
     </nav>
   );
 };
