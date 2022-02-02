@@ -3,17 +3,22 @@ import { Button, Input } from "components";
 import { EyeIcon, EyeOffIcon } from "@heroicons/react/outline";
 import { FacebookIcon, GoogleIcon, TwitterIcon } from "images";
 import { motion } from "framer-motion";
-import { Modal } from "components/reusable";
+import { Modal, ModalProps } from "components/reusable";
 import { SocialNetworkButtons } from "./SocialNetworkButtons";
 
-interface Props {
+interface Props extends ModalProps {
   title?: string;
   onClick: () => void;
   isOpen: boolean;
   children?: React.ReactNode;
 }
 
-export const SignInModal: FC<Props> = ({ title, isOpen = false, onClick }) => {
+export const SignInModal: FC<Props> = ({
+  title,
+  isOpen = false,
+  onClick,
+  ...props
+}) => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
   const handleToogleVisblePassword = useCallback(() => {
@@ -22,7 +27,7 @@ export const SignInModal: FC<Props> = ({ title, isOpen = false, onClick }) => {
 
   return (
     { isOpen } && (
-      <Modal>
+      <Modal {...props}>
         <p
           tabIndex={-1}
           role="heading"

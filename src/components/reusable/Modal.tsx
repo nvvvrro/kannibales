@@ -1,17 +1,38 @@
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { XIcon } from "@heroicons/react/outline";
 import { Button } from "components";
 
-interface Props {
+export interface ModalProps {
   children?: React.ReactNode;
   className?: string;
+  show?: boolean;
+  onClose?: () => void;
 }
 
-export const Modal: FC<Props> = ({ children, className }) => {
-  return (
+export const Modal: FC<ModalProps> = ({
+  children,
+  className,
+  show,
+  onClose,
+}) => {
+  const [isBrowser, setIsBrowser] = useState(false);
+
+  useEffect(() => {
+    setIsBrowser(true);
+  }, []);
+
+  const handleClose = (e: any) => {
+    e.preventDefault();
+    onClose && onClose();
+  };
+
+  const Modal = show && (
     <div
       id="modal-bg"
-      className={`${className || ""} h-full w-full py-16 px-4 ease-in-out absolute inset-0 bg-primary-dark bg-opacity-60 top-0 min-w-0 z-10`}
+      className={`${
+        className || ""
+      } h-full w-full py-16 px-4 ease-in-out absolute inset-0 bg-primary-dark bg-opacity-60 top-0 min-w-0 z-10`}
     >
       <div className="flex flex-col items-center justify-center">
         <div
@@ -22,9 +43,7 @@ export const Modal: FC<Props> = ({ children, className }) => {
             <Button
               kind="item"
               className="text-tx-main hover:text-tx-dark active:text-tx-current"
-              onClick={() => {
-                document.getElementById("modal-bg")?.remove();
-              }}
+              onClick={handleClose}
             >
               <XIcon className="w-8 h-8" />
             </Button>
@@ -35,4 +54,8 @@ export const Modal: FC<Props> = ({ children, className }) => {
       </div>
     </div>
   );
+
+  return isBrowser
+    ? createPortal(Modal, document.getElementById("modal-root")!)
+    : null;
 };
