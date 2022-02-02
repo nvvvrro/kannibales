@@ -1,11 +1,9 @@
-import React from "react";
 import Image from "next/image";
-import { ShoppingBagIcon, IncognitoIcon } from "images";
+import { ShoppingBagIcon } from "images";
 import Kannibales from "images/misc/kannibales.svg";
 import { Searcher } from "../reusable";
 import { UserNav } from "components/auths/UserNav";
 import { MenuProfile, SideBar } from ".";
-import { IconLabel } from "components/reusable/IconLabel";
 import { Button } from "components";
 export const Header = () => {
   return (
