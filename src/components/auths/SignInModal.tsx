@@ -1,5 +1,5 @@
 import { FC, useCallback, useEffect, useState } from "react";
-import { Button } from "components";
+import { Button, Input } from "components";
 import { EyeIcon, EyeOffIcon } from "@heroicons/react/outline";
 import { FacebookIcon, GoogleIcon, TwitterIcon } from "images";
 import { motion } from "framer-motion";
@@ -47,9 +47,8 @@ export const SignInModal: FC<Props> = ({ title, isOpen = false, onClick }) => {
           <label className="text-sm font-medium leading-none text-gray-800">
             Email
           </label>
-          <input
+          <Input
             aria-label="enter email adress"
-            role="input"
             type="email"
             className="bg-primary-light border rounded focus:outline-none text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"
           />
@@ -59,9 +58,8 @@ export const SignInModal: FC<Props> = ({ title, isOpen = false, onClick }) => {
             Password
           </label>
           <div className="relative flex items-center justify-center">
-            <input
+            <Input
               aria-label="enter Password"
-              role="input"
               type={isPasswordVisible ? "text" : "password"}
               className="bg-primary-light border rounded focus:outline-none text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"
             />
