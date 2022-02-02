@@ -1,14 +1,17 @@
-import { motion, HTMLMotionProps } from "framer-motion";
+import { FC } from "react";
 import classNames from "classnames";
+import { motion } from "framer-motion";
+import type { MouseEventHandler } from "react";
+import type { HTMLMotionProps } from "framer-motion";
 
 type ButtonType = "item" | "primary" | "secondary" | "outline" | "native";
 
 type ButtonSize = "small" | "large";
 
-interface Props extends HTMLMotionProps<"button"> {
+export interface Props extends HTMLMotionProps<"button"> {
   children?: React.ReactNode;
   className?: string;
-  onCLick?: () => void;
+  onClick?: MouseEventHandler;
   title?: string;
   kind?: ButtonType;
   size?: ButtonSize;
@@ -16,10 +19,10 @@ interface Props extends HTMLMotionProps<"button"> {
   disabled?: boolean;
   icon?: any;
 }
-export const Button = ({
+export const Button: FC<Props> = ({
   children,
   className = "",
-  onCLick,
+  onClick,
   title,
   kind = "native",
   size,
@@ -29,7 +32,7 @@ export const Button = ({
   whileHover,
   whileTap,
   ...props
-}: Props) => {
+}) => {
   const cn = classNames(className, "btn", {
     "btn-primary": kind === "primary",
     "btn-secondary": kind === "secondary",
@@ -49,7 +52,7 @@ export const Button = ({
       className={`${
         kind === "native" ? classNames("btn-native", className) : cn
       } group`}
-      onClick={onCLick}
+      onClick={onClick}
       disabled={disabled}
       {...props}
       whileHover={whileHover || { scale: 1.02 }}

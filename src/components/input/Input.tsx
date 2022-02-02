@@ -1,5 +1,5 @@
-import classNames from "classnames";
 import { FC } from "react";
+import classNames from "classnames";
 import type { DetailedHTMLProps, InputHTMLAttributes } from "react";
 
 export type InputProps = DetailedHTMLProps<
