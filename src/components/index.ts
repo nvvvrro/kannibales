@@ -1,3 +1,3 @@
 export * from "./structural";
-export * from "./buttons";
+export * from "./button";
 export * from "./auths";

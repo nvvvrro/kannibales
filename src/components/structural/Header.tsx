@@ -1,6 +1,5 @@
 import React from "react";
 import Image from "next/image";
-import { ButtonNav } from "../buttons/ButtonNav";
 import { ShoppingBagIcon, IncognitoIcon } from "images";
 import Kannibales from "images/misc/kannibales.svg";
 import { Searcher } from "../reusable";

@@ -1,11 +1,11 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { ButtonLogin, Layout } from "components";
+import { Layout, SignInModal } from "components";
 import styles from "../../styles/Home.module.css";
 import { useSession, signIn, signOut } from "next-auth/react";
 
 const Home: NextPage = () => {
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
 
   return (
     <div className={styles.container}>
@@ -18,14 +18,8 @@ const Home: NextPage = () => {
 
       <Layout>
         <main className={styles.main}>
-          {session ? (
-            <>
-              <h1>Welcome {session.user?.email}</h1>
-              <button onClick={() => signOut()}>Sign out</button>
-            </>
-          ) : (
-            <ButtonLogin />
-          )}
+          {status === "unauthenticated" && <SignInModal />}
+
           <div>
             <h1 className={styles.title}>
               Tienda <a href="https://nextjs.org">Kannibales</a>
