@@ -1,19 +1,24 @@
 import { FC, useCallback, useEffect, useState } from "react";
-import { Button } from "components";
+import { Button, Input } from "components";
 import { EyeIcon, EyeOffIcon } from "@heroicons/react/outline";
 import { FacebookIcon, GoogleIcon, TwitterIcon } from "images";
 import { motion } from "framer-motion";
-import { Modal } from "components/reusable";
+import { Modal, ModalProps } from "components/reusable";
 import { SocialNetworkButtons } from "./SocialNetworkButtons";
 
-interface Props {
+interface Props extends ModalProps {
   title?: string;
   onClick: () => void;
   isOpen: boolean;
   children?: React.ReactNode;
 }
 
-export const SignInModal: FC<Props> = ({ title, isOpen = false, onClick }) => {
+export const SignInModal: FC<Props> = ({
+  title,
+  isOpen = false,
+  onClick,
+  ...props
+}) => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
   const handleToogleVisblePassword = useCallback(() => {
@@ -22,7 +27,7 @@ export const SignInModal: FC<Props> = ({ title, isOpen = false, onClick }) => {
 
   return (
     { isOpen } && (
-      <Modal>
+      <Modal {...props}>
         <p
           tabIndex={-1}
           role="heading"
@@ -47,9 +52,8 @@ export const SignInModal: FC<Props> = ({ title, isOpen = false, onClick }) => {
           <label className="text-sm font-medium leading-none text-gray-800">
             Email
           </label>
-          <input
+          <Input
             aria-label="enter email adress"
-            role="input"
             type="email"
             className="bg-primary-light border rounded focus:outline-none text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"
           />
@@ -59,9 +63,8 @@ export const SignInModal: FC<Props> = ({ title, isOpen = false, onClick }) => {
             Password
           </label>
           <div className="relative flex items-center justify-center">
-            <input
+            <Input
               aria-label="enter Password"
-              role="input"
               type={isPasswordVisible ? "text" : "password"}
               className="bg-primary-light border rounded focus:outline-none text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"
             />

@@ -1,4 +1,5 @@
-@import "../src/components/buttons/button.css";
+@import "../src/components/button/button.css";
+@import "../src/components/input/input.css";
 
 html,
 body {
