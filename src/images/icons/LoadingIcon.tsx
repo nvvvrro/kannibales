@@ -2,15 +2,26 @@ import { SVGProps } from "react";
 
 export const LoadingIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg width={512} height={512} {...props}>
-      <circle cx={256} cy={96} r={64} />
-      <circle cx={96} cy={256} r={48} />
-      <circle cx={368} cy={144} r={8} />
-      <path d="M180.1 107.6c-19.9-20.1-52.2-20.1-72.1 0-19.9 20.1-19.9 52.7 0 72.8 19.9 20.1 52.2 20.1 72.1 0 19.9-20.1 19.9-52.7 0-72.8z" />
-      <circle cx={416} cy={256} r={16} />
-      <circle cx={369} cy={369} r={24} />
-      <circle cx={256} cy={416} r={32} />
-      <circle cx={144} cy={368} r={40} />
+    <svg
+      className="animate-spin h-6 w-6 mr-1"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      {...props}
+    >
+      <circle
+        className="opacity-25"
+        cx="12"
+        cy="12"
+        r="10"
+        stroke="currentColor"
+        strokeWidth="4"
+      />
+      <path
+        className="opacity-75"
+        fill="currentColor"
+        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+      />
     </svg>
   );
 };

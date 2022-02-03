@@ -1,13 +1,13 @@
+import React from "react";
 import Image from "next/image";
-import { ShoppingBagIcon } from "images";
+import { ButtonNav } from "../buttons/ButtonNav";
+import { ShoppingBagIcon, IncognitoIcon } from "images";
 import Kannibales from "images/misc/kannibales.svg";
 import { Searcher } from "../reusable";
 import { UserNav } from "components/auths/UserNav";
 import { MenuProfile, SideBar } from ".";
+import { IconLabel } from "components/reusable/IconLabel";
 import { Button } from "components";
-import { navButtons } from "../../../config/config";
-import Link from "next/link";
-
 export const Header = () => {
   return (
     <nav className="bg-primary-main">
@@ -65,18 +65,12 @@ export const Header = () => {
                 alt="Kannibales"
               />
             </div>
-            <div className="hidden mobile:block mobile:ml-6 gap-4 self-center">
-              <div className="flex space-x-8">
-                {navButtons.map((button, index) => (
-                  <Link href={button.path} key={index}>
-                    <Button
-                      key={button.path}
-                      title={button.title}
-                      kind="item"
-                      className="text-gray-700 hover:text-gray-900"
-                    />
-                  </Link>
-                ))}
+            <div className="hidden mobile:block mobile:ml-6 gap-4">
+              <div className="flex space-x-4">
+                <Button title="Tienda" kind="outline" />
+                <Button title="Blogs" kind="secondary" />
+                <Button title="Contacto" kind="primary" />
+                <Button title="Nosotros" kind="item" />
               </div>
             </div>
             <div className="hidden mobile:block mobile:ml-6">

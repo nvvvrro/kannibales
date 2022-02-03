@@ -1,24 +1,19 @@
 import { FC, useCallback, useEffect, useState } from "react";
-import { Button, Input } from "components";
+import { Button } from "components";
 import { EyeIcon, EyeOffIcon } from "@heroicons/react/outline";
 import { FacebookIcon, GoogleIcon, TwitterIcon } from "images";
 import { motion } from "framer-motion";
-import { Modal, ModalProps } from "components/reusable";
+import { Modal } from "components/reusable";
 import { SocialNetworkButtons } from "./SocialNetworkButtons";
 
-interface Props extends ModalProps {
+interface Props {
   title?: string;
   onClick: () => void;
   isOpen: boolean;
   children?: React.ReactNode;
 }
 
-export const SignInModal: FC<Props> = ({
-  title,
-  isOpen = false,
-  onClick,
-  ...props
-}) => {
+export const SignInModal: FC<Props> = ({ title, isOpen = false, onClick }) => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
   const handleToogleVisblePassword = useCallback(() => {
@@ -27,7 +22,7 @@ export const SignInModal: FC<Props> = ({
 
   return (
     { isOpen } && (
-      <Modal {...props}>
+      <Modal>
         <p
           tabIndex={-1}
           role="heading"
@@ -52,8 +47,9 @@ export const SignInModal: FC<Props> = ({
           <label className="text-sm font-medium leading-none text-gray-800">
             Email
           </label>
-          <Input
+          <input
             aria-label="enter email adress"
+            role="input"
             type="email"
             className="bg-primary-light border rounded focus:outline-none text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"
           />
@@ -63,8 +59,9 @@ export const SignInModal: FC<Props> = ({
             Password
           </label>
           <div className="relative flex items-center justify-center">
-            <Input
+            <input
               aria-label="enter Password"
+              role="input"
               type={isPasswordVisible ? "text" : "password"}
               className="bg-primary-light border rounded focus:outline-none text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"
             />

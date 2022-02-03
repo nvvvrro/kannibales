@@ -1,7 +1,6 @@
 import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
-import FacebookProfile from "next-auth/providers/facebook";
-import TwitterProvider from "next-auth/providers/twitter";
+import GitHubProvider from "next-auth/providers/github";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { prisma } from "prisma/index";
 
@@ -14,19 +13,12 @@ import { prisma } from "prisma/index";
 export default NextAuth({
   adapter: PrismaAdapter(prisma),
   providers: [
-    GoogleProvider({
-      clientId: process.env.GOOGLE_ID || "",
-      clientSecret: process.env.GOOGLE_SECRET || "",
-    }),
-    FacebookProfile({
-      clientId: process.env.FACEBOOK_ID || "",
-      clientSecret: process.env.FACEBOOK_SECRET || "",
-    }),
-    TwitterProvider({
-      clientId: process.env.TWITTER_ID || "",
-      clientSecret: process.env.TWITTER_SECRET || "",
-      version: "2.0",
+    GitHubProvider({
+      clientId: process.env.GITHUB_ID || "",
+      clientSecret: process.env.GITHUB_SECRET || "",
     }),
   ],
   secret: process.env.SECRET || "",
+
+  // ...add more providers here
 });
