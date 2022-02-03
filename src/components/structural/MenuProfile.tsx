@@ -1,78 +1,76 @@
-import { useState } from "react";
-import { Button, SignInModal } from "components";
+import { FC, useState } from "react";
+import { SignInModal } from "components";
 import { useSession, signOut } from "next-auth/react";
+import { LogoutIcon, UserIcon, CogIcon } from "@heroicons/react/solid";
+import { UserCircleIcon } from "@heroicons/react/outline";
+import { Dropdown, Item } from "components";
 
-export const MenuProfile = () => {
+export const MenuProfile: FC = () => {
   const [showSignIn, setShowSignIn] = useState(false);
-  const { status } = useSession();
+  const { data: session, status } = useSession();
 
   return (
-    <div className="ml-3 relative">
-      <div>
-        {status === "unauthenticated" ? (
-          <>
-            <Button
-              title="Iniciar sesión"
-              kind="item"
-              onClick={() => setShowSignIn(true)}
-            />
-            <SignInModal
-              onClose={() => setShowSignIn(false)}
-              show={showSignIn}
-            />
-          </>
-        ) : (
-          <>
-            <button
-              type="button"
-              className="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
-              id="user-menu-button"
-              aria-expanded="false"
-              aria-haspopup="true"
-            >
-              <span className="sr-only">Open user menu</span>
-
-              <img
-                className="h-8 w-8 rounded-full"
-                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                alt=""
+    <>
+      <div className="relative gap-2 grid place-items-center">
+        <Dropdown
+          icon={
+            status === "unauthenticated" ? (
+              <UserCircleIcon
+                className="w-7 h-7 ml-2 -mr-1 text-violet-200 hover:text-violet-100"
+                aria-hidden="true"
               />
-            </button>
-            <div
-              className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
-              role="menu"
-              aria-orientation="vertical"
-              aria-labelledby="user-menu-button"
-            >
-              <a
-                href="#"
-                className="block px-4 py-2 text-sm text-gray-700"
-                role="menuitem"
-                id="user-menu-item-0"
-              >
-                Your Profile
-              </a>
-              <a
-                href="#"
-                className="block px-4 py-2 text-sm text-gray-700"
-                role="menuitem"
-                id="user-menu-item-1"
-              >
-                Settings
-              </a>
-              <a
-                href="#"
-                className="block px-4 py-2 text-sm text-gray-700"
-                role="menuitem"
-                id="user-menu-item-2"
-                onClick={() => signOut()}
-              >
-                Sign out
-              </a>
-            </div>
-          </>
+            ) : (
+              <UserIcon
+                className="w-7 h-7 ml-2 -mr-1 text-violet-200 hover:text-violet-100"
+                aria-hidden="true"
+              />
+            )
+          }
+        >
+          {status === "unauthenticated" && (
+            <>
+              <Item onClick={() => setShowSignIn(true)}>
+                <LogoutIcon className="w-5 h-5 mr-2" aria-hidden="true" />
+                Iniciar Sesión
+              </Item>
+              <div className="px-1 py-1">
+                <Item>
+                  <UserIcon className="w-4 h-4 mr-1.5" aria-hidden="true" />
+                  Registrase
+                </Item>
+                <Item>
+                  <CogIcon className="w-5 h-5 mr-1.5" aria-hidden="true" />
+                  Configuración
+                </Item>
+              </div>
+            </>
+          )}
+          {status === "authenticated" && (
+            <>
+              <div className="px-1 py-1">
+                <Item>
+                  <UserIcon className="w-4 h-4 mr-1.5" aria-hidden="true" />
+                  Mi perfil
+                </Item>
+                <Item>
+                  <CogIcon className="w-5 h-5 mr-1.5" aria-hidden="true" />
+                  Configuración
+                </Item>
+              </div>
+              <Item onClick={() => signOut()}>
+                <LogoutIcon className="w-5 h-5 mr-2" aria-hidden="true" />
+                Cerra sesión
+              </Item>
+            </>
+          )}
+        </Dropdown>
+        {status === "authenticated" && (
+          <span className="flex flex-col items-center text-xs rounded-full hover:opacity-80 font-light -my-4">
+            {session?.user?.name}
+          </span>
         )}
       </div>
-    </div>
+      <SignInModal onClose={() => setShowSignIn(false)} show={showSignIn} />
+    </>
   );
 };
