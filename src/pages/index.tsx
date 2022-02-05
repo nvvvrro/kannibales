@@ -1,13 +1,12 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { Layout } from "components";
+import { Layout, SignInModal } from "components";
 import styles from "../../styles/Home.module.css";
-import { useSession} from "next-auth/react";
+import { useSession } from "next-auth/react";
 import { useState } from "react";
+import { Modal } from "components/reusable";
 
 const Home: NextPage = () => {
-  const { data: session, status } = useSession();
-  const [showModal, setShowModal] = useState(false);
 
   return (
     <div className={styles.container}>
