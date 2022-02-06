@@ -2,59 +2,19 @@ import Image from "next/image";
 import { ShoppingBagIcon } from "images";
 import Kannibales from "images/misc/kannibales.svg";
 import { Searcher } from "../reusable";
-import { UserNav } from "components/auths/UserNav";
-import { MenuProfile, SideBar } from ".";
+import { MenuProfile } from ".";
 import { Button } from "components";
-import { navButtons } from "../../../config/config";
+import { navRoutes } from "../../../config/config";
 import Link from "next/link";
 
-export const Header = () => {
+export const Header = ({ children }: any) => {
   return (
     <nav className="bg-primary-main">
+      {children}
       <div className="flex flex-col max-w-7xl mx-auto px-2 pt-2 mobile:px-4 desktop:px-8">
         <div className="relative flex items-center justify-between w-full h-16 ">
-          <div className="absolute inset-y-0 left-0 flex items-center mobile:hidden">
-            <button
-              type="button"
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
-              aria-controls="mobile-menu"
-              aria-expanded="false"
-            >
-              <span className="sr-only">Open main menu</span>
+          <div className="absolute inset-y-0 left-0 flex items-center mobile:hidden"></div>
 
-              <svg
-                className="block h-6 w-6"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
-
-              <svg
-                className="hidden h-6 w-6"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </button>
-          </div>
           <div className="flex-1 flex items-center justify-center mobile:items-stretch mobile:justify-start">
             <div className="flex-shrink-0 flex items-center">
               <Image
@@ -67,11 +27,11 @@ export const Header = () => {
             </div>
             <div className="hidden mobile:block mobile:ml-6 gap-4 self-center">
               <div className="flex space-x-8">
-                {navButtons.map((button, index) => (
-                  <Link href={button.path} key={index}>
+                {navRoutes.map((route, index) => (
+                  <Link href={route.path} key={index}>
                     <Button
-                      key={button.path}
-                      title={button.title}
+                      key={route.path}
+                      title={route.title}
                       kind="item"
                       className="text-gray-700 hover:text-gray-900"
                     />
@@ -86,15 +46,13 @@ export const Header = () => {
                 onChange={() => {}}
               />
             </div>
-            <UserNav />
           </div>
           <div className="absolute inset-y-0 right-0 flex items-center pr-2 mobile:static mobile:inset-auto mobile:ml-6 mobile:pr-0">
-            <button
-              type="button"
+            <Button
+              kind="item"
               className="hover:bg-primary-contrast p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-btn-main focus:ring-btn-light"
             >
               <span className="sr-only">View notifications</span>
-
               <ShoppingBagIcon
                 className="h-8 w-8"
                 strokeLinejoin="round"
@@ -102,14 +60,11 @@ export const Header = () => {
                 strokeWidth={2}
                 fill="hover:text-white"
               />
-            </button>
-
+            </Button>
             <MenuProfile />
           </div>
         </div>
       </div>
-
-      <SideBar />
     </nav>
   );
 };
