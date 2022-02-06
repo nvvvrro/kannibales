@@ -4,21 +4,16 @@ import Kannibales from "images/misc/kannibales.svg";
 import { Searcher } from "../reusable";
 import { MenuProfile } from ".";
 import { Button } from "components";
-import { navButtons } from "../../../config/config";
+import { navRoutes } from "../../../config/config";
 import Link from "next/link";
 
-export const Header = () => {
+export const Header = ({ children }: any) => {
   return (
     <nav className="bg-primary-main">
+      {children}
       <div className="flex flex-col max-w-7xl mx-auto px-2 pt-2 mobile:px-4 desktop:px-8">
         <div className="relative flex items-center justify-between w-full h-16 ">
-          <div className="absolute inset-y-0 left-0 flex items-center mobile:hidden">
-            <Button
-              kind="item"
-              aria-controls="mobile-menu"
-              aria-expanded="false"
-            ></Button>
-          </div>
+          <div className="absolute inset-y-0 left-0 flex items-center mobile:hidden"></div>
 
           <div className="flex-1 flex items-center justify-center mobile:items-stretch mobile:justify-start">
             <div className="flex-shrink-0 flex items-center">
@@ -32,11 +27,11 @@ export const Header = () => {
             </div>
             <div className="hidden mobile:block mobile:ml-6 gap-4 self-center">
               <div className="flex space-x-8">
-                {navButtons.map((button, index) => (
-                  <Link href={button.path} key={index}>
+                {navRoutes.map((route, index) => (
+                  <Link href={route.path} key={index}>
                     <Button
-                      key={button.path}
-                      title={button.title}
+                      key={route.path}
+                      title={route.title}
                       kind="item"
                       className="text-gray-700 hover:text-gray-900"
                     />
