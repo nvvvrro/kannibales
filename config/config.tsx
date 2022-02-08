@@ -30,32 +30,32 @@ export const sidebarRoutes = [
   {
     path: "/toys",
     name: "Jugueteria",
-    icon: <FireIcon className="h-6 w-6" />,
+    icon: <FireIcon className="h-7 w-7" />,
   },
   {
     path: "/cosmetics",
     name: "Cosmetica",
-    icon: <CosmeticIcon className="h-6 w-6" />,
+    icon: <CosmeticIcon className="h-7 w-7 self-center" />,
   },
   {
     path: "/health",
     name: "Salud",
-    icon: <HealthIcon className="h-6 w-6" />,
+    icon: <HealthIcon className="h-7 w-7 self-center" />,
   },
 
   {
     path: "/supplements",
     name: "Suplementos",
-    icon: <SupplementIcon className="h-8 w-8" />,
+    icon: <SupplementIcon className="h-7 w-7 self-center" />,
   },
   {
     path: "/sports",
     name: "Deporte",
-    icon: <SportIcon className="h-8 w-8" />,
+    icon: <SportIcon className="h-7 w-7 self-center" />,
   },
   {
     path: "/blog",
     name: "Blog",
-    icon: <BlogIcon className="h-6 w-6" />,
+    icon: <BlogIcon className="h-7 w-7 self-center"/>,
   },
 ];
