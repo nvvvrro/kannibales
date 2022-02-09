@@ -33,14 +33,14 @@ const Path = ({ ...props }) => (
   <motion.path
     fill="transparent"
     strokeWidth="3"
-    stroke="hsl(0, 0%, 18%)"
+    stroke="hsl(0, 0%, 100%)"
     strokeLinecap="round"
     {...props}
   />
 );
 
 export const XToggle: FC<PropsXToogle> = ({ toggle, className }) => (
-  <Button kind="item" onClick={toggle} className={className}>
+  <Button kind="item" size="small" onClick={toggle} className={className}>
     <svg width="23" height="23" viewBox="0 0 23 23">
       <Path
         variants={{
