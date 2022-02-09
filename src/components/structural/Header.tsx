@@ -5,11 +5,11 @@ import { Searcher } from "../reusable";
 import { MenuProfile } from ".";
 import { Button } from "components";
 import { navRoutes } from "../../../config/config";
-import Link from "next/link";
+import { Link } from "components";
 
 export const Header = ({ children }: any) => {
   return (
-    <nav className="bg-primary-main">
+    <nav className="bg-primary-main flex">
       {children}
       <div className="flex flex-col max-w-7xl mx-auto px-2 pt-2 mobile:px-4 desktop:px-8">
         <div className="relative flex items-center justify-between w-full h-16 ">
@@ -33,7 +33,7 @@ export const Header = ({ children }: any) => {
                       key={route.path}
                       title={route.title}
                       kind="item"
-                      className="text-gray-700 hover:text-gray-900"
+                      className="text-primary-dark hover:text-primary-light focus:outline-none"
                     />
                   </Link>
                 ))}
