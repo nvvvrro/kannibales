@@ -1,8 +1,6 @@
-import { FC, useCallback, useEffect, useState } from "react";
+import { FC, useCallback, useState } from "react";
 import { Button, Input } from "components";
 import { EyeIcon, EyeOffIcon } from "@heroicons/react/outline";
-import { FacebookIcon, GoogleIcon, TwitterIcon } from "images";
-import { motion } from "framer-motion";
 import { Modal, ModalProps } from "components/reusable";
 import { SocialNetworkButtons } from "./SocialNetworkButtons";
 
