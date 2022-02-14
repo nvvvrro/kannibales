@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
+import { FooterBottom } from "components";
 import Kannibales from "images/misc/kannibales.svg";
-import { FooterBottom } from "./FooterBottom";
 
 export const Footer = () => {
   return (

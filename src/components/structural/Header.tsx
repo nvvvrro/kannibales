@@ -1,11 +1,8 @@
 import Image from "next/image";
+import { MenuProfile, Button, Searcher, Link } from "components";
 import { ShoppingBagIcon } from "images";
+import { navRoutes } from "config";
 import Kannibales from "images/misc/kannibales.svg";
-import { Searcher } from "../reusable";
-import { MenuProfile } from ".";
-import { Button } from "components";
-import { navRoutes } from "../../../config/config";
-import { Link } from "components";
 
 export const Header = ({ children }: any) => {
   return (

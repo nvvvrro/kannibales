@@ -1,7 +1,8 @@
-import type { LinkProps as NextLinkProps } from "next/link";
+
 import NextLink from "next/link";
 import { useRouter } from "next/router";
 import { useCallback } from "react";
+import type { LinkProps as NextLinkProps } from "next/link";
 import type { AnchorHTMLAttributes, FC, PropsWithChildren } from "react";
 
 export type LinkProps = PropsWithChildren<

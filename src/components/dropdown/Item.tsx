@@ -1,7 +1,7 @@
 import { FC } from "react";
-import type { MouseEventHandler } from "react";
 import { Button } from "components";
 import { Menu } from "@headlessui/react";
+import type { MouseEventHandler } from "react";
 
 export type ItemProps = {
   children: React.ReactNode;

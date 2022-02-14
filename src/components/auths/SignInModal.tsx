@@ -1,8 +1,7 @@
 import { FC, useCallback, useState } from "react";
-import { Button, Input } from "components";
+import { Button, Input, Modal, SocialNetworkButtons } from "components";
 import { EyeIcon, EyeOffIcon } from "@heroicons/react/outline";
-import { Modal, ModalProps } from "components/reusable";
-import { SocialNetworkButtons } from "./SocialNetworkButtons";
+import type { ModalProps } from "components";
 
 interface Props extends ModalProps {
   title?: string;
