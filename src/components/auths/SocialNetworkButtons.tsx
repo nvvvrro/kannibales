@@ -1,5 +1,4 @@
-import { Button } from "components";
-import { Loader } from "components/reusable/Loader";
+import { Button, Loader } from "components";
 import { FacebookIcon, GoogleIcon, TwitterIcon } from "images";
 import { signIn, useSession } from "next-auth/react";
 

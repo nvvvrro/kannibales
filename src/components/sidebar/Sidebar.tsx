@@ -1,8 +1,7 @@
 import { useCallback } from "react";
 import { AnimatePresence, motion, useCycle } from "framer-motion";
-import { Link } from "components";
-import { sidebarRoutes } from "../../../config/config";
-import { XToggle, toggleAnimation } from "components/reusable";
+import { Link, XToggle, toggleAnimation } from "components";
+import { sidebarRoutes } from "config";
 
 const itemAnimation = {
   hidden: {

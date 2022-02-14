@@ -1,9 +1,8 @@
 import { FC, useState } from "react";
-import { SignInModal } from "components";
+import { SignInModal, Dropdown, Item } from "components";
 import { useSession, signOut } from "next-auth/react";
 import { LogoutIcon, UserIcon, CogIcon } from "@heroicons/react/solid";
 import { UserCircleIcon } from "@heroicons/react/outline";
-import { Dropdown, Item } from "components";
 
 export const MenuProfile: FC = () => {
   const [showSignIn, setShowSignIn] = useState(false);

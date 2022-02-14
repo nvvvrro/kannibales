@@ -1,6 +1,5 @@
 import React, { FC } from "react";
-import { TagIcon, LupaIcon } from "images";
-import Image from "next/image";
+import { SearchIcon } from "@heroicons/react/solid";
 
 interface Props {
   className?: string;
@@ -67,7 +66,7 @@ export const Searcher: FC<Props> = ({
         >
           {buttonText || (
             <div className="hidden appearance-none mobile:block mobile:ml-1 mr-1">
-              <LupaIcon width={30} height={30} />
+              <SearchIcon className="h-6 w-6 text-white" aria-hidden="true" />
             </div>
           )}
         </button>

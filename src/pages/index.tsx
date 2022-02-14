@@ -1,10 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { Layout, SignInModal } from "components";
-import styles from "../../styles/Home.module.css";
-import { useSession } from "next-auth/react";
-import { useState } from "react";
-import { Modal } from "components/reusable";
+import { Layout } from "components";
+import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
 

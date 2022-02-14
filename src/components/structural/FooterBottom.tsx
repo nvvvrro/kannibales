@@ -3,7 +3,6 @@ import React from "react";
 interface Props {
   className?: string;
 }
-
 export const FooterBottom = ({ className }: Props) => {
   return (
     <div className={`bg-primary-light ${className}`}>

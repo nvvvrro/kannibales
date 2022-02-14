@@ -1,6 +1,5 @@
 import React from "react";
-import { Footer, Header } from ".";
-import { Sidebar } from "components/sidebar";
+import { Footer, Header, Sidebar } from "components";
 
 interface Props {
   children: React.ReactNode;
