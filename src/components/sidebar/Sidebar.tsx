@@ -9,13 +9,16 @@ const itemAnimation = {
     opacity: 0,
     transition: {
       duration: 0.5,
+      when: "afterChildren",
     },
   },
   show: {
     opacity: 1,
     width: "auto",
+    animate: { pathLength: 1 },
     transition: {
-      duration: 0.5,
+      when: "beforeChildren",
+      type: "spring",
     },
   },
 };
@@ -55,7 +58,7 @@ export const Sidebar = () => {
                     >
                       <Link
                         href={route.path}
-                        className="flex-auto py-4 text-left inline-flex items-center justify-start "
+                        className="flex-auto py-4 text-left inline-flex items-center justify-start text-primary-dark hover:text-white focus:outline-none"
                       >
                         <span className={`pr-3`}>{route.icon}</span>
                         {route.name}
