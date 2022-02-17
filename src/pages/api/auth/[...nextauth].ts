@@ -1,9 +1,11 @@
-import NextAuth from "next-auth";
+import NextAuth, { NextAuthOptions } from "next-auth";
+import { MongoDBAdapter } from "@next-auth/mongodb-adapter";
 import GoogleProvider from "next-auth/providers/google";
 import FacebookProfile from "next-auth/providers/facebook";
 import TwitterProvider from "next-auth/providers/twitter";
-import { PrismaAdapter } from "@next-auth/prisma-adapter";
-import { prisma } from "prisma/index";
+import clientPromise from "lib/mongodb";
+
+const uri = process.env.MONGODB_URI as string;
 
 /**
  * @description This is the next-auth configuration for the [...nextAuth] page. It is used to authenticate users with different providers.
@@ -12,7 +14,7 @@ import { prisma } from "prisma/index";
  * @example localhost:3000/api/auth/redirect
  */
 export default NextAuth({
-  adapter: PrismaAdapter(prisma),
+  adapter: MongoDBAdapter(clientPromise),
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_ID || "",
@@ -28,5 +30,6 @@ export default NextAuth({
       version: "2.0",
     }),
   ],
+  database: uri,
   secret: process.env.SECRET || "",
-});
+} as NextAuthOptions);
