@@ -6,3 +6,4 @@ export * from "./button";
 export * from "./dropdown";
 export * from "./link";
 export * from "./sidebar";
+export * from "./product";
