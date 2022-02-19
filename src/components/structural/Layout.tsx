@@ -8,9 +8,9 @@ interface Props {
   pathName?: string;
 }
 
-export const Layout = ({ children, className, pathName }: Props) => {
+export const Layout = ({ children, className = "", pathName }: Props) => {
   return (
-    <div className={className || ""}>
+    <div className={className}>
       <Header>
         <Sidebar />
       </Header>
