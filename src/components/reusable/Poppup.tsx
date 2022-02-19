@@ -1,7 +1,7 @@
 import { FC, Fragment, useCallback } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { Button } from "components";
-import { XIcon } from "@heroicons/react/solid";
+import { XIcon, InformationCircleIcon } from "@heroicons/react/solid";
 
 /**
  * @param {React.ReactNode} props.children
@@ -31,7 +31,7 @@ export const Poppup: FC<PoppupProps> = ({
   title,
   description,
   info,
-  buttonText = "Continuar",
+  buttonText = "",
   show,
   onClose,
 }) => {
@@ -64,9 +64,7 @@ export const Poppup: FC<PoppupProps> = ({
             <span
               className="inset-x-0 top-0 static h-screen align-middle"
               aria-hidden="true"
-            >
-              &#8203;
-            </span>
+            />
             <Transition.Child
               as={Fragment}
               enter="ease-out duration-300"
@@ -83,13 +81,13 @@ export const Poppup: FC<PoppupProps> = ({
                     className="text-tx-main hover:text-tx-dark active:text-tx-current"
                     onClick={handleClose}
                   >
-                    <XIcon className="w-8 h-8" />
+                    <XIcon className="w-8 h-8 outline-none" />
                   </Button>
                 </div>
 
                 <Dialog.Title
-                  as="h3"
-                  className="text-lg font-medium leading-6 text-gray-900"
+                  as="h2"
+                  className="text-xl font-medium leading-6 text-gray-900"
                 >
                   {title || "Bienvenido"}
                 </Dialog.Title>
@@ -98,18 +96,23 @@ export const Poppup: FC<PoppupProps> = ({
 
                 {children}
 
-                <div className="mt-2">
-                  <p className="text-sm text-gray-500">{info}</p>
+                <div className="mt-4 flex justify-end">
+                  {buttonText && (
+                    <Button
+                      kind="outline"
+                      className="inline-flex justify-center px-4 py-2  font-medium text-indigo-600"
+                      onClick={handleClose}
+                    >
+                      {buttonText}
+                    </Button>
+                  )}
                 </div>
 
-                <div className="mt-4 flex justify-end">
-                  <Button
-                    kind="outline"
-                    className="inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
-                    onClick={handleClose}
-                  >
-                    {buttonText}
-                  </Button>
+                <div className="flex justify-start">
+                  {info && (
+                    <InformationCircleIcon className="w-4 h-4 text-tx-current static cursor-pointer" />
+                  )}
+                  <p className="inline-block text-xs text-gray-500">{info}</p>
                 </div>
               </div>
             </Transition.Child>
