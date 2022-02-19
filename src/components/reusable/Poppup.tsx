@@ -74,8 +74,8 @@ export const Poppup: FC<PoppupProps> = ({
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <div className="inline-block w-full max-w-2xl p-6 my-20 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl ">
-                <div className="flex justify-end items-end -m-4 ">
+              <div className="inline-block w-full max-w-xl overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl mobile:py-12 mobile:px-16 py-8 px-8 my-20">
+                <div className="flex justify-end items-end mobile:-mt-8 mobile:-mr-12 -mr-6 -mt-6">
                   <Button
                     kind="item"
                     className="text-tx-main hover:text-tx-dark active:text-tx-current"
@@ -92,7 +92,9 @@ export const Poppup: FC<PoppupProps> = ({
                   {title || "Bienvenido"}
                 </Dialog.Title>
 
-                <Dialog.Description>{description}</Dialog.Description>
+                <Dialog.Description className="text-sm mobile:text -base">
+                  {description}
+                </Dialog.Description>
 
                 {children}
 
@@ -108,7 +110,7 @@ export const Poppup: FC<PoppupProps> = ({
                   )}
                 </div>
 
-                <div className="flex justify-start">
+                <div className="flex justify-start mobile:-ml-12 -mb-6 -ml-5">
                   {info && (
                     <InformationCircleIcon className="w-4 h-4 text-tx-current static cursor-pointer" />
                   )}
