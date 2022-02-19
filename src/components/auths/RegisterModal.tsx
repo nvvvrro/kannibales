@@ -1,11 +1,11 @@
-import { Button, Input, Poppup, PoppupProps } from "components";
+import { Button, Input, Modal } from "components";
 import { FC } from "react";
-import { UsersIcon } from "@heroicons/react/solid";
 import { SocialNetworkButtons } from ".";
+import type { ModalProps } from "components";
 
-export const RegisterModal: FC<PoppupProps> = ({ show, onClose }) => {
+export const RegisterModal: FC<ModalProps> = ({ show, onClose }) => {
   return (
-    <Poppup
+    <Modal
       show={show}
       onClose={onClose}
       title="Registro de Usuario"
@@ -70,9 +70,8 @@ export const RegisterModal: FC<PoppupProps> = ({ show, onClose }) => {
             kind="outline"
             className="justify-center px-4 py-2 font-medium max-w-sm"
             onClick={onClose}
-          >
-            Continuar
-          </Button>
+            title="REGISTRARSE"
+          />
         </div>
       </form>
 
@@ -89,6 +88,6 @@ export const RegisterModal: FC<PoppupProps> = ({ show, onClose }) => {
       </p>
 
       <SocialNetworkButtons />
-    </Poppup>
+    </Modal>
   );
 };
