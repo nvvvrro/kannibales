@@ -1,13 +1,37 @@
 @layer utilities {
+  /* ---------- Input ----------*/
   .input-common {
-    @apply bg-primary-light h-12 w-full outline-none appearance-none;
+    @apply block bg-primary-light h-12 w-full;
+  }
+
+  .input-field {
+    @apply block w-full appearance-none bg-transparent p-4 text-lg;
+
+    &:focus {
+      @apply outline-none;
+    }
+
+    &:focus-within ~ .label,
+    &:not(:placeholder-shown) ~ .label {
+      @apply transform scale-75 -translate-y-6 text-primary-dark duration-300 origin-0;
+    }
   }
 
   .input {
-    @apply input-common px-4;
+    @apply input-field;
   }
 
-  .input-searchable {
-    @apply input-common px-10 pr-4;
+  /* ---------- Textfield ----------*/
+  .text-field {
+    @apply relative my-4 border-2;
+
+    &:focus-within {
+      @apply border-indigo-500;
+    }
+  }
+
+  /* ---------- label ----------*/
+  .label {
+    @apply absolute top-0 p-4 text-lg -z-1;
   }
 }
