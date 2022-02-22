@@ -36,6 +36,9 @@ module.exports = {
       transformOrigin: {
         0: "0%",
       },
+      scale: {
+        85: "0.85",
+      },
     },
     screens: {
       "2xs": "360px",
