@@ -1,11 +1,11 @@
 @layer utilities {
   /* ---------- Input ----------*/
   .input-common {
-    @apply block bg-primary-light h-12 w-full;
+    @apply block bg-transparent p-3 w-full;
   }
 
   .input-field {
-    @apply block w-full appearance-none bg-transparent p-4 text-lg;
+    @apply text-base appearance-none;
 
     &:focus {
       @apply outline-none;
@@ -13,25 +13,33 @@
 
     &:focus-within ~ .label,
     &:not(:placeholder-shown) ~ .label {
-      @apply transform scale-75 -translate-y-6 text-primary-dark duration-300 origin-0;
+      @apply transform scale-75 -translate-y-3 z-0 ml-3 px-1 py-0 outline-hidden border-x-2;
+    }
+
+    &:focus-within ~ .label {
+      @apply text-primary-contrast border-indigo-400;
     }
   }
 
   .input {
-    @apply input-field;
+    @apply input-common;
   }
 
-  /* ---------- Textfield ----------*/
+  /* ---------- Textfield (div) ----------*/
   .text-field {
-    @apply relative my-4 border-2;
+    @apply outline-0 relative border-2 mt-2 rounded-lg;
 
     &:focus-within {
-      @apply border-indigo-500;
+      @apply border-indigo-400;
+    }
+
+    &:active {
+      @apply bg-gray-50;
     }
   }
 
   /* ---------- label ----------*/
   .label {
-    @apply absolute top-0 p-4 text-lg -z-1;
+    @apply absolute top-0 text-lg bg-white p-3 -z-1 duration-300 origin-0;
   }
 }
