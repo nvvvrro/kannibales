@@ -1,5 +1,11 @@
 import { FC, useCallback, useState } from "react";
-import { Button, Input, Modal, SocialNetworkButtons } from "components";
+import {
+  Button,
+  Form,
+  Modal,
+  SocialNetworkButtons,
+  TextField,
+} from "components";
 import { EyeIcon, EyeOffIcon } from "@heroicons/react/outline";
 import type { ModalProps } from "components";
 
@@ -29,57 +35,35 @@ export const SignInModal: FC<ModalProps> = ({ show, onClose }) => {
           Regístrate aquí
         </span>
       </p>
-      <div>
-        <label className="text-sm font-medium leading-none text-gray-800">
-          Email
-        </label>
-        <Input
-          aria-label="enter email adress"
-          type="email"
-          className="bg-primary-light border rounded focus:outline-none text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"
-        />
-      </div>
-      <div className="mt-6  w-full">
-        <label className="text-sm font-medium leading-none text-gray-800">
-          Password
-        </label>
-        <div className="relative flex items-center justify-center">
-          <Input
-            aria-label="enter Password"
+      <Form>
+        <TextField type="email" name="email" label="Email" className="mt-3" />
+
+        <div className="relative flex items-center justify-center -top-4">
+          <TextField
             type={isPasswordVisible ? "text" : "password"}
-            className="bg-primary-light border rounded focus:outline-none text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"
+            name="password"
+            label="Password"
+            className="w-full"
           />
+
           <div className="absolute right-0 mt-2 mr-3 cursor-pointer">
             <Button kind="item" onClick={handleToogleVisblePassword}>
               {isPasswordVisible ? (
-                <EyeIcon className="h-6 w-6 text-indigo-700 hover:text-primary-contrast" />
+                <EyeIcon className="h-6 w-6 text-indigo-600 hover:text-primary-contrast" />
               ) : (
-                <EyeOffIcon className="h-6 w-6" />
+                <EyeOffIcon className="h-6 w-6 text-tx-main hover:text-primary-dark" />
               )}
             </Button>
           </div>
         </div>
-      </div>
 
-      <div className="flex items-center">
-        <input
-          id="remember-me"
-          name="remember-me"
-          type="checkbox"
-          className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
-        />
-        <label className="ml-2 block text-sm text-gray-900">Remember me</label>
-      </div>
-
-      <div className="flex justify-center">
         <Button
-          className="mt-10 max-w-sm"
           kind="outline"
+          className="px-4 py-2 font-medium"
           aria-label="create my account"
           title="INGRESAR"
         />
-      </div>
-
+      </Form>
       <div className="w-full flex items-center justify-between py-5">
         <hr className="w-full bg-gray-400" />
         <p className="text-base font-medium leading-4 px-2.5 text-gray-400">
