@@ -1,12 +1,22 @@
-import { FC, useState } from "react";
-import { SignInModal, Dropdown, Item } from "components";
+import { FC, useCallback, useState } from "react";
+import { SignInModal, Dropdown, Item, RegisterModal } from "components";
 import { useSession, signOut } from "next-auth/react";
 import { LogoutIcon, UserIcon, CogIcon } from "@heroicons/react/solid";
 import { UserCircleIcon } from "@heroicons/react/outline";
 
 export const MenuProfile: FC = () => {
-  const [showSignIn, setShowSignIn] = useState(false);
   const { data: session, status } = useSession();
+  const [showSignIn, setShowSignIn] = useState(false);
+  const [showRegister, setShowRegister] = useState(true);
+
+  //toogle Modals onClick
+  const handleModalSignIn = useCallback(() => {
+    setShowSignIn(!showSignIn);
+  }, [showSignIn]);
+
+  const handleModalRegister = useCallback(() => {
+    setShowRegister(!showRegister);
+  }, [showRegister]);
 
   return (
     <>
@@ -28,12 +38,12 @@ export const MenuProfile: FC = () => {
         >
           {status === "unauthenticated" && (
             <>
-              <Item onClick={() => setShowSignIn(true)}>
+              <Item onClick={handleModalSignIn}>
                 <LogoutIcon className="w-5 h-5 mr-2" aria-hidden="true" />
                 Iniciar Sesión
               </Item>
               <div className="px-1 py-1">
-                <Item>
+                <Item onClick={handleModalRegister}>
                   <UserIcon className="w-4 h-4 mr-1.5" aria-hidden="true" />
                   Registrase
                 </Item>
@@ -69,7 +79,8 @@ export const MenuProfile: FC = () => {
           </span>
         )}
       </div>
-      <SignInModal onClose={() => setShowSignIn(false)} show={showSignIn} />
+      <SignInModal show={showSignIn} onClose={handleModalSignIn} />
+      <RegisterModal show={showRegister} onClose={handleModalRegister} />
     </>
   );
 };
