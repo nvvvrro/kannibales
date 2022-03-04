@@ -13,7 +13,7 @@ export const dbConnect = async () => {
     return mongoose.connection.db;
   }
 
-  mongoose
+  await mongoose
     .connect(uri, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
@@ -21,9 +21,10 @@ export const dbConnect = async () => {
       useCreateIndex: true,
     } as MongoClientOptions)
     .then(() => {
-      console.log("Connected to MongoDB");
+      console.log("Connected to MongoDB successfully 🚀");
     })
     .catch((err) => {
       console.error(err);
+      process.exit(1);
     });
 };
