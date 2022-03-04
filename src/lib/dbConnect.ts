@@ -8,23 +8,40 @@ if (!uri) {
     "Please define the MONGODB_URI environment variable inside .env.local"
   );
 }
+
+// @ts-ignore
+let cached = global.mongoose;
+
+if (!cached) {
+  // @ts-ignore
+  cached = global.mongoose = { conn: null, promise: null };
+}
+
 export const dbConnect = async () => {
   if (mongoose.connection.readyState >= 1) {
     return mongoose.connection.db;
   }
 
-  await mongoose
-    .connect(uri, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      useFindAndModify: false,
-      useCreateIndex: true,
-    } as MongoClientOptions)
-    .then(() => {
-      console.log("Connected to MongoDB successfully 🚀");
-    })
-    .catch((err) => {
-      console.error(err);
-      process.exit(1);
-    });
+  if (cached.conn) {
+    return cached.conn;
+  }
+
+  if (!cached.promise) {
+    await mongoose
+      .connect(uri, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        bufferCommands: false,
+      } as MongoClientOptions)
+      .then(() => {
+        console.log("Connected to MongoDB successfully 🚀");
+      })
+      .catch((err) => {
+        console.error(err);
+        process.exit(1);
+      });
+  }
+
+  cached.conn = await cached.promise;
+  return cached.conn;
 };
