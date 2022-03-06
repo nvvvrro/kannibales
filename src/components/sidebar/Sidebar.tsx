@@ -15,7 +15,6 @@ const itemAnimation = {
   show: {
     opacity: 1,
     width: "auto",
-    animate: { pathLength: 1 },
     transition: {
       when: "beforeChildren",
       type: "spring",
