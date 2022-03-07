@@ -13,13 +13,13 @@
     "db:deploy": "npx prisma migrate deploy"
   },
   "dependencies": {
-    "@apollo/client": "^3.5.7",
+    "@apollo/client": "3.5.10",
     "@headlessui/react": "1.4.3",
     "@heroicons/react": "1.0.5",
     "@next-auth/mongodb-adapter": "1.0.1",
     "classnames": "2.3.1",
     "framer-motion": "6.2.3",
-    "graphql": "^16.2.0",
+    "graphql": "16.3.0",
     "mongodb": "4.3.1",
     "mongoose": "6.2.2",
     "mongoose-unique-validator": "3.0.0",
